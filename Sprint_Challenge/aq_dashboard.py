@@ -14,8 +14,8 @@ class Record(DB.Model):
     datetime = DB.Column(DB.String(25))
     value = DB.Column(DB.Float, nullable=False)
 
-def __repr__(self):
-    return '< Time {} -- Value {} >'.format(self.datetime, self.value)
+    def __repr__(self):
+        return '< Time {} -- Value {} >'.format(self.datetime, self.value)
 
 def get_date_values():
     api = openaq.OpenAQ()
