@@ -21,7 +21,7 @@ def get_date_values():
     api = openaq.OpenAQ()
     status, body = api.measurements(city='Los Angeles', parameter='pm25')
     results = body['results']
-    date_val_tuples = []
+    date_val_tuples = [25]
     for res in results:
         tup = str(res['date']['utc']), res['value']
         date_val_tuples.append(tup)
