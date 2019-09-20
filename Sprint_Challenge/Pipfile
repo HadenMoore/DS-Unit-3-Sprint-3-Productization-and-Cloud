@@ -12,6 +12,7 @@ requests = "*"
 pandas = "*"
 seaborn = "*"
 matplotlib = "*"
+py-openaq = "*"
 
 [requires]
 python_version = "3.7"
