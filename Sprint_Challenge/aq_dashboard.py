@@ -4,6 +4,7 @@
 #Importing flask_sqlalchemy for Part 3:
 """OpenAQ Air Quality Dashboard with Flask."""
 import openaq
+import requests
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
