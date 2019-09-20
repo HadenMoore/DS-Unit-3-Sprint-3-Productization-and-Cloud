@@ -36,7 +36,7 @@ def make_records(date_val_tuples):
 @APP.route('/')
 def root():
     """Base view."""
-    record = Record.query.filter(Record.value>=10)
+    record = Record.query.filter(Record.values>=10)
     return str(record)
 
 @APP.route('/refresh')
