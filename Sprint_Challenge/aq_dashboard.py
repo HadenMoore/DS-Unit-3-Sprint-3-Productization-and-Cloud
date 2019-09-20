@@ -11,26 +11,26 @@ DB = SQLAlchemy(APP)
 api = openaq.OpenAQ()
 
 class Record(DB.Model):
-  id = DB.Column(DB.Integer, primary_key=True)
-  datetime = DB.Column(DB.String(25))
-  value = DB.Column(DB.Float, nullable=False)
+    id = DB.Column(DB.Integer, primary_key=True)
+    datetime = DB.Column(DB.String(25))
+    value = DB.Column(DB.Float, nullable=False)
 
   def __repr__(self):
     return '< Time {} -- Value {} >'.format(self.datetime, self.value)
 
 def get_date_values():
-  status, body = api.measurements(city='Los Angeles', parameter='pm25')
-  results = body['results']
-  date_val_tuples = []
-  for res in results:
-    tup = str(res['date']['utc']), res['value']
-    date_val_tuples.append(tup)
-  return date_val_tuples
+    status, body = api.measurements(city='Los Angeles', parameter='pm25')
+    results = body['results']
+    date_val_tuples = []
+    for res in results:
+        tup = str(res['date']['utc']), res['value']
+        date_val_tuples.append(tup)
+        return date_val_tuples
 
-  def make_records(date_val_tuples):
-  for tup in date_val_tuples:
-    db_record = Record(datetime=tup[0], value=tup[1])
-    DB.session.add(db_record)
+def make_records(date_val_tuples):
+    for tup in date_val_tuples:
+        db_record = Record(datetime=tup[0], value=tup[1])
+        DB.session.add(db_record)
 
 @APP.route('/')
 def root():
