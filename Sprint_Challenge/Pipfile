@@ -13,6 +13,8 @@ pandas = "*"
 seaborn = "*"
 matplotlib = "*"
 py-openaq = "*"
+python-dateutil = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
