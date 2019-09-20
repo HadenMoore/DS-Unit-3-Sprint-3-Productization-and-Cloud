@@ -39,7 +39,7 @@ def get_date_values():
 def make_records(date_val_tuples):
     for tup in date_val_tuples:
         db_record = Record(datetime=tup[0], value=tup[1])
-        DB.session.add(db_Record)
+        DB.session.add(db_record)
 
 # Finishing Up:
 @APP.route('/')
