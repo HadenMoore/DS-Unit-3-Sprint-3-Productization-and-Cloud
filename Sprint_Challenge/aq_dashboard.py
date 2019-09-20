@@ -24,7 +24,7 @@ def get_date_values():
     date_val_tuples = []
     for res in results:
         tup = str(res['date']['utc']), res['value']
-        date_val_tuples.append(tup)
+        date_val_tuples.add(tup)
     return date_val_tuples
 
 def make_records(date_val_tuples):
