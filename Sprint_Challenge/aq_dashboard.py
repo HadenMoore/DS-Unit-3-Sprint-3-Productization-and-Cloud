@@ -13,7 +13,6 @@ class Record(DB.Model):
     id = DB.Column(DB.Integer, primary_key=True)
     datetime = DB.Column(DB.String(25))
     value = DB.Column(DB.Float, nullable=False)
-
     def __repr__(self):
         return '< Time {} -- Value {} >'.format(self.datetime, self.value)
 
@@ -47,5 +46,4 @@ def refresh():
     date_val_tuples = get_date_values()
     make_records(date_val_tuples)
     DB.session.close()
-    DB.session.commit()
     return 'Data refreshed!'
