@@ -46,5 +46,6 @@ def refresh():
     DB.create_all()
     date_val_tuples = get_date_values()
     make_records(date_val_tuples)
-    DB.session.close(db_record)
+    DB.session.close()
+    DB.session.commit()
     return 'Data refreshed!'
