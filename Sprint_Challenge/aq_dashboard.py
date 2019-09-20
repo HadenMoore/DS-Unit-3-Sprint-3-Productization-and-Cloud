@@ -31,7 +31,8 @@ def get_date_values():
 def make_records(date_val_tuples):
     for tup in date_val_tuples:
         db_record = Record(datetime=tup[0], value=tup[1])
-        DB.session.append(db_record)
+        DB.session.add(db_record)
+        DB.session.commit(db_record)
 
 @APP.route('/')
 def root():
@@ -46,5 +47,5 @@ def refresh():
     DB.create_all()
     date_val_tuples = get_date_values()
     make_records(date_val_tuples)
-    DB.session.commit()
+    DB.session.close()
     return 'Data refreshed!'
