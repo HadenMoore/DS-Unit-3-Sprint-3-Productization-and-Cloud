@@ -5,7 +5,7 @@
 from flask import Flask
 
 #Importing flask_sqlalchemy for Part 3:
-from flask_sqlalchemy import flask_sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 
 #Importing Python Wrapper for the API:
 import openaq
