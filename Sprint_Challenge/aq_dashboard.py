@@ -9,8 +9,6 @@ APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 DB = SQLAlchemy(APP)
 
-api = openaq.OpenAQ()
-
 class Record(DB.Model):
     id = DB.Column(DB.Integer, primary_key=True)
     datetime = DB.Column(DB.String(25))
@@ -20,6 +18,7 @@ def __repr__(self):
     return '< Time {} -- Value {} >'.format(self.datetime, self.value)
 
 def get_date_values():
+    api = openaq.OpenAQ()
     status, body = api.measurements(city='Los Angeles', parameter='pm25')
     results = body['results']
     date_val_tuples = []
