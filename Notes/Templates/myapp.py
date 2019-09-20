@@ -1,5 +1,5 @@
 # Import my flash package
-from flask import Flask
+from flask import Flask, render_template
 
 # Create Flask Web Server
 app = Flask(__name__)
@@ -8,16 +8,16 @@ app = Flask(__name__)
 @app.route("/")
 
 # Define a littel function to-
-# -Tell it what to do at that Route
+# Tell it what to do at that Route
 def home():
-    return "What it do, Baby Boo?"
+    return render_template('home.html')
 
 # Create another route
 @app.route("/about")
 
 #Define another Function for this New route
 def pred():
-    return "This is The About Page."
+    return render_template('about.html')
 
 # Clean things up
 if __name__ == "__main__":
