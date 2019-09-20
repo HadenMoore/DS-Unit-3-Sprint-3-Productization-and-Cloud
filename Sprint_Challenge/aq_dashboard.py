@@ -31,12 +31,12 @@ def get_date_values():
 def make_records(date_val_tuples):
     for tup in date_val_tuples:
         db_record = Record(datetime=tup[0], value=tup[1])
-        DB.session.add(db_record)
+        DB.session.append(db_record)
 
 @APP.route('/')
 def root():
     """Base view."""
-    record = Record.query.filter(Record.value>=10).all()
+    record = Record.query.filter(Record.value > 10).all()
     return str(record)
 
 @APP.route('/refresh')
