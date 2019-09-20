@@ -1,12 +1,10 @@
 # Part 1: If I could put Flask in a File:
-
-"""OpenAQ Air Quality Dashboard with Flask."""
-#Importing Python Wrapper for the API:
-import openaq
 #Importing Packages:
-from flask import Flask
-
+#Importing Python Wrapper for the API:
 #Importing flask_sqlalchemy for Part 3:
+"""OpenAQ Air Quality Dashboard with Flask."""
+import openaq
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 APP = Flask(__name__)
@@ -45,8 +43,8 @@ def make_records(date_val_tuples):
 @APP.route('/')
 def root():
     """Base view."""
-    Records = Record.query.filter(Record.value>=10).all()
-    return str(Records)
+    records = Record.query.filter(Record.value>=10).all()
+    return str(records)
 
 @APP.route('/refresh')
 def refresh():
@@ -56,4 +54,4 @@ def refresh():
     date_val_tuples = get_date_values()
     make_records(date_val_tuples)
     DB.session.commit()
-    return 'Data is Refreshed!'
+    return 'Data Refreshed!'
