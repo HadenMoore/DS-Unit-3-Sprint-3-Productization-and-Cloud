@@ -8,11 +8,15 @@ verify_ssl = true
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
+flask_sqlalchemy = "*"
+SQLAlchemy = "*"
 requests = "*"
 pandas = "*"
 seaborn = "*"
 matplotlib = "*"
 py-openaq = "*"
+openaq = "*"
+Flask = "*"
 
 [requires]
 python_version = "3.7"
